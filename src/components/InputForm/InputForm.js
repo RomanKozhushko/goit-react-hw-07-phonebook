@@ -1,13 +1,10 @@
-import { useSelector, useDispatch } from 'react-redux';
-import { addContact } from '../../redux/contactsSlice';
+import { useAddContactMutation } from 'components/ContactsAPI/contactsAPI';
 import { InputItem, FormDecoration, Label, Button } from './InputForm.styled';
-
 import { nanoid } from 'nanoid';
 import { Formik, Form } from 'formik';
 
-export function InputForm() {
-  const contacts = useSelector(store => store.contacts.items);
-  const dispatch = useDispatch();
+export function InputForm({ contacts }) {
+  const [addContact] = useAddContactMutation();
 
   const onSubmit = (values, action) => {
     const equalName = contacts.find(
@@ -16,7 +13,7 @@ export function InputForm() {
     if (equalName) return alert(equalName.name + ' is already in contacts');
 
     values.id = nanoid();
-    dispatch(addContact(values));
+    addContact(values);
     action.resetForm();
   };
   return (

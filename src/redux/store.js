@@ -1,32 +1,20 @@
 import { configureStore } from '@reduxjs/toolkit';
-import {
-  persistStore,
-  persistReducer,
-  FLUSH,
-  REHYDRATE,
-  PAUSE,
-  PERSIST,
-  PURGE,
-  REGISTER,
-} from 'redux-persist';
-import storage from 'redux-persist/lib/storage';
-import contactsReducer from './contactsSlice';
+import { contactsAPI } from 'components/ContactsAPI/contactsAPI';
+// import storage from 'redux-persist/lib/storage';
+// import contactsReducer from './contactsSlice';
 
-// 1/ Робимо Action creator
-const persistConfig = { key: 'contacts', storage };
+// // 1/ Робимо Action creator
+// const persistConfig = { key: 'contacts', storage };
 
-// 2/ Робимо Reducer щоб обробляти Action
-const persistedReduсer = persistReducer(persistConfig, contactsReducer);
+// // 2/ Робимо Reducer щоб обробляти Action
+// const persistedReduсer = persistReducer(persistConfig, contactsReducer);
 
-// 3/ Створюємо Store для реєстрації та ініціалізації
-const store = configureStore({
-  reducer: { contacts: persistedReduсer },
-  middleware: getDefaultMiddleware =>
-    getDefaultMiddleware({
-      serializableCheck: {
-        ignoreActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-      },
-    }),
+
+export const store = configureStore({
+    reducer: { [contactsAPI.reducerPath]: contactsAPI.reducer},
+
+    middleware: getDefaultMiddleware => 
+        getDefaultMiddleware().concat(contactsAPI.middleware)
 });
-const persistor = persistStore(store);
-export { store, persistor };
+// const persistor = persistStore(store);
+// export { store, persistor };
