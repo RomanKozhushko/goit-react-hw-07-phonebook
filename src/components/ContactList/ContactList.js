@@ -1,6 +1,7 @@
 import { ContactItem } from '../ContactItem/ContactItem';
 import PropTypes from 'prop-types';
 import { ContactsList, ContactsListBox } from './ContactList.styled';
+
 export function ContactList({ contacts }) {
   return (
     <ContactsListBox>

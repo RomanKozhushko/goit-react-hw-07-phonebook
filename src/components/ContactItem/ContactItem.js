@@ -6,16 +6,17 @@ import {
   DelBtn,
 } from '../ContactList/ContactList.styled';
 import PropTypes from 'prop-types';
-import { useDispatch } from 'react-redux';
-import { removeContact } from '../../redux/contactsSlice';
+// import { useDispatch } from 'react-redux';
+// import { removeContact } from '../../redux/contactsSlice';
+import { useDeleteContactMutation } from "components/ContactsAPI/contactsAPI";
 
 export function ContactItem({ contact, idx }) {
-  const dispatch = useDispatch();
+  const [deleteContact] = useDeleteContactMutation()
   return (
     <ListItem>
       <NumByOrder>{idx + 1}</NumByOrder>
       <TelName>{contact.name}:</TelName> <TelNum>{contact.number}</TelNum>
-      <DelBtn type="button" onClick={() => dispatch(removeContact(contact.id))}>
+      <DelBtn type="button" onClick={() => deleteContact(contact.id)}>
         Delete
       </DelBtn>
     </ListItem>
