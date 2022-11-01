@@ -35,4 +35,3 @@ method: "POST",
             }),
 invalidatesTags: ['contacts']
         }),
-deleteContact: b
