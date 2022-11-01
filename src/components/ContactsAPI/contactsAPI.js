@@ -43,4 +43,3 @@ deleteContact: builder.mutation({
     invalidatesTags: ['contacts']
 })
     })
-})
