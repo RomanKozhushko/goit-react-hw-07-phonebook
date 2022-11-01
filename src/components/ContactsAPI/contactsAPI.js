@@ -31,5 +31,4 @@ export const { useGetContactsQuery, useAddContactMutation, useDeleteContactMutat
 
 
 method: "POST",
-    body: data
-  
+    
