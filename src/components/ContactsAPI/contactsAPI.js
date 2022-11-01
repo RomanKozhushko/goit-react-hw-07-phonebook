@@ -27,3 +27,20 @@ export const contactsAPI = createApi ({
     })
 })
 export const { useGetContactsQuery, useAddContactMutation, useDeleteContactMutation } = contactsAPI; 
+
+
+
+method: "POST",
+    body: data
+            }),
+invalidatesTags: ['contacts']
+        }),
+deleteContact: builder.mutation({
+    query: id => ({
+        url: `contacts/${id}`,
+        method: "DELETE",
+    }),
+    invalidatesTags: ['contacts']
+})
+    })
+})
