@@ -33,5 +33,5 @@ export const { useGetContactsQuery, useAddContactMutation, useDeleteContactMutat
 method: "POST",
     body: data
             }),
-invalidatesTags: ['contacts']
+invalidatesTag
   
