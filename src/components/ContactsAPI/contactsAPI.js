@@ -27,8 +27,3 @@ export const contactsAPI = createApi ({
     })
 })
 export const { useGetContactsQuery, useAddContactMutation, useDeleteContactMutation } = contactsAPI; 
-
-
-
-method: "POST",
-    
