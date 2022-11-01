@@ -35,4 +35,4 @@ method: "POST",
             }),
 invalidatesTags: ['contacts']
         }),
-deleteContact: builder.mutation({
+deleteContact: b
