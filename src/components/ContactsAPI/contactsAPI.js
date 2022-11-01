@@ -38,5 +38,4 @@ invalidatesTags: ['contacts']
 deleteContact: builder.mutation({
     query: id => ({
         url: `contacts/${id}`,
-        method: "DELETE",
-    }),
+    
